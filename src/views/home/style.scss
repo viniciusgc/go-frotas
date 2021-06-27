@@ -1,0 +1,13 @@
+@import '../../sass//variables.scss';
+
+.main-card {
+  border: none;
+}
+
+.hr {
+  border-bottom: 1px solid $secondary;
+}
+
+.body {
+  padding: 1.25rem 0;
+}

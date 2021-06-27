@@ -1,0 +1,42 @@
+@import '../../sass//variables.scss';
+
+body {
+  background-color: #eeeeee;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.46em;
+  text-transform: none;
+  letter-spacing: -0.18px;
+  color: $accent;
+}
+
+h1,
+h2,
+h4,
+h5 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  color: $primary;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $primary;
+}
+
+.user {
+  font-family: 'Barlow', sans-serif;
+  color: $primary !important;
+}
+
+.btn {
+  background-color: $secondary !important;
+  border-color: $secondary !important;
+  border-radius: 50px !important;
+
+  &:hover {
+    background-color: $primary !important;
+    border-color: $primary !important;
+  }
+}
