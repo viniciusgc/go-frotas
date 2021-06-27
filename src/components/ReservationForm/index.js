@@ -11,7 +11,7 @@ export default function ReservationForm() {
   const [hasSameStore, setHasSameStore] = useState(true);
 
   return (
-    <Form onSubmit={() => console.log('foi')} ref={formRef}>
+    <Form ref={formRef}>
       <Row>
         <Col md="6">
           <Input
@@ -49,27 +49,27 @@ export default function ReservationForm() {
         <Col md="4">
           <DatePicker
             name="name"
-            label="Data e Hora de Retirada"
+            label="Data de Retirada"
             placeholder="Escolha a data"
           />
         </Col>
         <Col md="2">
-          <TimerPicker name="name" label="Data e Hora de Retirada" />
+          <TimerPicker name="name" label="Hora de Retirada" />
         </Col>
 
         <Col md="4">
-          <DatePicker name="name" label="Data e Hora de Devolução" />
+          <DatePicker name="name" label="Data de Devolução" />
         </Col>
 
         <Col md="2">
-          <TimerPicker name="name" label="Data e Hora de Retirada" />
+          <TimerPicker name="name" label="Hora de Retirada" />
         </Col>
       </Row>
 
       <Row className="mt-5">
         <Col>
           <Button color="primary" size="lg" className="float-right">
-            Avançar
+            Próximo
           </Button>
         </Col>
       </Row>

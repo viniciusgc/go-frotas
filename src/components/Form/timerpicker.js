@@ -4,7 +4,7 @@ import ReactDatePicker from 'react-datepicker';
 import { useField } from '@unform/core';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { FormGroup } from 'reactstrap';
+import { FormGroup, Label } from 'reactstrap';
 import './style.scss';
 
 export default function TimerPicker({ name, label, ...rest }) {
@@ -26,8 +26,10 @@ export default function TimerPicker({ name, label, ...rest }) {
 
   return (
     <FormGroup inline>
+      <Label for={name}>{label}</Label>
+
       <ReactDatePicker
-        className="form-control datepicker mt-2e"
+        className="form-control datepicker"
         ref={datepickerRef}
         selected={date}
         onChange={setDate}
