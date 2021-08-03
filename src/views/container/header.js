@@ -23,7 +23,7 @@ const Header = () => {
     <div>
       <Navbar color="white" light expand="md" className="mb-4">
         <NavbarBrand href="/">
-          <img src={Logo} width="173" height="44" alt="logo" />
+          <img src={Logo} width="70" height="70" alt="logo" />
         </NavbarBrand>
 
         <NavbarToggler onClick={toggle} />

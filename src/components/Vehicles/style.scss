@@ -1,0 +1,23 @@
+.vehicle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .vehicle-card {
+    width: calc(50% - 10px);
+
+    &:not(:last-child) {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  button {
+    width: 155px;
+  }
+
+  img {
+    height: 200px !important;
+    object-fit: contain;
+  }
+}

@@ -5,3 +5,4 @@ export { default as TimerPicker } from './Form/timerpicker';
 
 export { default as ReservationForm } from './ReservationForm';
 export { default as Steps } from './Steps';
+export { default as Vehicles } from './Vehicles';

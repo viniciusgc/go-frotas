@@ -1,14 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Form } from '@unform/web';
-import { Button, Col, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import Input from '../Form/input';
-import Checkbox from '../Form/checkbox';
 import DatePicker from '../Form/datepicker';
 import TimerPicker from '../Form/timerpicker';
 
 export default function ReservationForm() {
   const formRef = useRef(null);
-  const [hasSameStore, setHasSameStore] = useState(true);
+  // const [hasSameStore, setHasSameStore] = useState(true);
 
   return (
     <Form ref={formRef}>
@@ -18,11 +17,12 @@ export default function ReservationForm() {
             name="inicio"
             label="Onde você deseja retirar seu carro?"
             type="text"
-            required
+            readOnly
+            value="Av Maria Antonia Camargo de Oliveira 590, Araraquara - SP"
           />
         </Col>
 
-        {!hasSameStore && (
+        {/* {!hasSameStore && (
           <Col md="6">
             <Input
               name="termino"
@@ -31,10 +31,10 @@ export default function ReservationForm() {
               required
             />
           </Col>
-        )}
+        )} */}
       </Row>
 
-      <Row className="mb-4">
+      {/* <Row className="mb-4">
         <Col md="6">
           <Checkbox
             name="name"
@@ -43,7 +43,7 @@ export default function ReservationForm() {
             onChange={e => setHasSameStore(e.target.checked)}
           />
         </Col>
-      </Row>
+      </Row> */}
 
       <Row>
         <Col md="4">
@@ -63,14 +63,6 @@ export default function ReservationForm() {
 
         <Col md="2">
           <TimerPicker name="name" label="Hora de Retirada" />
-        </Col>
-      </Row>
-
-      <Row className="mt-5">
-        <Col>
-          <Button color="primary" size="lg" className="float-right">
-            Próximo
-          </Button>
         </Col>
       </Row>
     </Form>
