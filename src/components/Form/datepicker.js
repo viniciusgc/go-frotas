@@ -36,6 +36,7 @@ export default function DatePicker({ name, label, ...rest }) {
         selected={date}
         onChange={setDate}
         locale="ptBR"
+        dateFormat="dd/MM/yyyy"
         {...rest}
       />
     </FormGroup>

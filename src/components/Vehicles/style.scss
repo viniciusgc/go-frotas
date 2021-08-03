@@ -7,9 +7,7 @@
   .vehicle-card {
     width: calc(50% - 10px);
 
-    &:not(:last-child) {
-      margin-bottom: 1.25rem;
-    }
+    margin-bottom: 1.25rem;
   }
 
   button {

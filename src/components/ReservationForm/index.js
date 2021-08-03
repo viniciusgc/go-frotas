@@ -1,20 +1,20 @@
 import React, { useRef } from 'react';
 import { Form } from '@unform/web';
-import { Col, Row } from 'reactstrap';
+import { Col, Row, Button } from 'reactstrap';
 import Input from '../Form/input';
 import DatePicker from '../Form/datepicker';
 import TimerPicker from '../Form/timerpicker';
 
-export default function ReservationForm() {
+export default function ReservationForm({ handleSubmit }) {
   const formRef = useRef(null);
   // const [hasSameStore, setHasSameStore] = useState(true);
 
   return (
-    <Form ref={formRef}>
+    <Form ref={formRef} onSubmit={handleSubmit}>
       <Row>
         <Col md="6">
           <Input
-            name="inicio"
+            name="local"
             label="Onde você deseja retirar seu carro?"
             type="text"
             readOnly
@@ -48,21 +48,34 @@ export default function ReservationForm() {
       <Row>
         <Col md="4">
           <DatePicker
-            name="name"
+            name="dataInicio"
             label="Data de Retirada"
             placeholder="Escolha a data"
           />
         </Col>
         <Col md="2">
-          <TimerPicker name="name" label="Hora de Retirada" />
+          <TimerPicker name="horaInicio" label="Hora de Retirada" />
         </Col>
 
         <Col md="4">
-          <DatePicker name="name" label="Data de Devolução" />
+          <DatePicker name="dataTermino" label="Data de Devolução" />
         </Col>
 
         <Col md="2">
-          <TimerPicker name="name" label="Hora de Retirada" />
+          <TimerPicker name="horaTermino" label="Hora de Devolução" />
+        </Col>
+      </Row>
+
+      <Row className="mt-5">
+        <Col>
+          <Button
+            color="primary"
+            size="lg"
+            className="float-right"
+            type="submit"
+          >
+            Próximo
+          </Button>
         </Col>
       </Row>
     </Form>

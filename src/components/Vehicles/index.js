@@ -8,26 +8,34 @@ import {
   CardSubtitle,
   Button,
 } from 'reactstrap';
+import { formatMoney } from '../../utils/money';
 import './style.scss';
 
-function Vehicles() {
+function Vehicles({ vehicles }) {
+  const getImage = () => {
+    if (vehicles.URLImagem) {
+      return vehicles.URLImagem;
+    }
+
+    return 'https://gofrotas.com.br/wp-content/uploads/2019/01/site-go-grupoC-370x370-1.png';
+  };
+
   return (
     <div className="vehicle">
-      {[0, 1, 2].map(e => (
-        <Card className="vehicle-card" key={e}>
-          <CardImg
-            top
-            src="https://gofrotas.com.br/wp-content/uploads/2019/01/site-go-grupoC-370x370-1.png"
-            alt="Card image cap"
-          />
+      {vehicles.map(vehicle => (
+        <Card className="vehicle-card" key={vehicle.LetraDescricao}>
+          <CardImg top src={getImage()} alt={vehicle.LetraDescricao} />
+
           <CardBody className="text-center">
-            <CardTitle tag="h4">Grupo B - Veiculos 1.0</CardTitle>
+            <CardTitle tag="h4">{`Grupo ${vehicle.LetraDescricao}`}</CardTitle>
 
             <CardSubtitle tag="h5" className="mb-2 text-muted">
-              R$: 129,40 / Diária
+              {`${formatMoney(
+                vehicle.Tarifas[0].ValorPeriodoVeiculo
+              )} / Diária`}
             </CardSubtitle>
 
-            <CardText>GOL / KA / UNO / ARGO</CardText>
+            <CardText>{vehicle.SubDescricao}</CardText>
 
             <Button size="lg">Alugar</Button>
           </CardBody>

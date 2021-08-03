@@ -1,16 +1,32 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Card, CardTitle, Col, Row, Button } from 'reactstrap';
+import ReactLoading from 'react-loading';
+import { Card, CardTitle, Col, Row } from 'reactstrap';
 import Layout from '../container/layout';
 import { ReservationForm, Steps, Vehicles } from '../../components';
 
 import './style.scss';
+import { getVehiclesGroup } from './actions';
 
 function Home() {
+  const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
+  const [vehicles, setVehicles] = useState([]);
 
-  const handleVehicles = () => {
-    setStep(2);
+  const handleVehicles = async data => {
+    setLoading(true);
+
+    try {
+      const vehiclesData = await getVehiclesGroup(data);
+
+      setVehicles(vehiclesData);
+
+      setStep(2);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -31,25 +47,22 @@ function Home() {
             <div className="hr" />
 
             <div className="body">
-              {step === 1 && <ReservationForm />}
+              {!loading && (
+                <>
+                  {step === 1 && (
+                    <ReservationForm handleSubmit={handleVehicles} />
+                  )}
 
-              {step === 2 && <Vehicles />}
+                  {step === 2 && <Vehicles vehicles={vehicles} />}
+                </>
+              )}
+
+              {loading && (
+                <div className="loading">
+                  <ReactLoading type="spinningBubbles" color="#23195f" />
+                </div>
+              )}
             </div>
-
-            {step !== 2 && (
-              <Row className="mt-5">
-                <Col>
-                  <Button
-                    color="primary"
-                    size="lg"
-                    className="float-right"
-                    onClick={handleVehicles}
-                  >
-                    Próximo
-                  </Button>
-                </Col>
-              </Row>
-            )}
           </Card>
         </Col>
       </Row>
