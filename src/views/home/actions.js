@@ -30,3 +30,20 @@ export const getVehiclesGroup = data => {
       console.error(e);
     });
 };
+
+export const reservation = data => {
+  const params = makeData(data);
+
+  return client
+    .get(`${API.VEHICLES}`, {
+      params: {
+        ...params,
+      },
+    })
+    .then(({ data: { Data } }) => {
+      return Data;
+    })
+    .catch(e => {
+      console.error(e);
+    });
+};

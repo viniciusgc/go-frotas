@@ -39,7 +39,7 @@ const Header = () => {
                 <FontAwesomeIcon icon="user" />
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Minhas Reservas</DropdownItem>
+                <DropdownItem href="/reservas">Minhas Reservas</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>Sair</DropdownItem>
               </DropdownMenu>

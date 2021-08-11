@@ -1,10 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { Home } from './views';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Home, Reserves } from './views';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <Route path="/" component={Home} exact />
+    <Switch>
+      <Route path="/" component={Home} exact />
+      <Route path="/reservas" component={Reserves} exact />
+    </Switch>
   </BrowserRouter>
 );
 

@@ -1,0 +1,21 @@
+@import '../../sass//variables.scss';
+
+.image {
+  width: 120px;
+  height: auto;
+}
+
+span {
+  font-weight: bold;
+  color: $primary;
+  font-family: 'Barlow';
+}
+
+.price {
+  background-color: $secondary;
+  color: $white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 20px;
+  font-family: 'Barlow';
+}

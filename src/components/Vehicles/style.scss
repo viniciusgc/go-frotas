@@ -6,8 +6,11 @@
 
   .vehicle-card {
     width: calc(50% - 10px);
-
     margin-bottom: 1.25rem;
+
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
   }
 
   button {
