@@ -5,9 +5,43 @@ import Input from '../Form/input';
 import DatePicker from '../Form/datepicker';
 import TimerPicker from '../Form/timerpicker';
 
-export default function ReservationForm({ handleSubmit }) {
+export default function ReservationForm({ handleVehicles }) {
   const formRef = useRef(null);
   // const [hasSameStore, setHasSameStore] = useState(true);
+
+  const checkErrors = data => {
+    if (!data.dataInicio) {
+      formRef.current.setFieldError('dataInicio', 'data obrigatória');
+    }
+
+    if (!data.dataTermino) {
+      formRef.current.setFieldError('dataTermino', 'data obrigatória');
+    }
+
+    if (!data.horaInicio) {
+      formRef.current.setFieldError('horaInicio', 'data obrigatória');
+    }
+
+    if (!data.horaTermino) {
+      formRef.current.setFieldError('horaTermino', 'data obrigatória');
+    }
+
+    return (
+      !data.dataInicio ||
+      !data.dataTermino ||
+      !data.horaInicio ||
+      !data.horaTermino
+    );
+  };
+  const handleSubmit = async data => {
+    const error = checkErrors(data);
+
+    if (error) {
+      return null;
+    }
+
+    return handleVehicles(data);
+  };
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>

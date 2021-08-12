@@ -9,7 +9,7 @@ import './style.scss';
 
 export default function TimerPicker({ name, label, ...rest }) {
   const datepickerRef = useRef(null);
-  const { fieldName, registerField, defaultValue } = useField(name);
+  const { fieldName, registerField, defaultValue, error } = useField(name);
 
   const [date, setDate] = useState(defaultValue || null);
 
@@ -29,7 +29,11 @@ export default function TimerPicker({ name, label, ...rest }) {
       <Label for={name}>{label}</Label>
 
       <ReactDatePicker
-        className="form-control datepicker"
+        className={
+          error
+            ? 'form-control datepicker is-invalid'
+            : 'form-control datepicker'
+        }
         ref={datepickerRef}
         selected={date}
         onChange={setDate}

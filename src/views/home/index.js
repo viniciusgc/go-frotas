@@ -50,7 +50,7 @@ function Home() {
               {!loading && (
                 <>
                   {step === 1 && (
-                    <ReservationForm handleSubmit={handleVehicles} />
+                    <ReservationForm handleVehicles={handleVehicles} />
                   )}
 
                   {step === 2 && <Vehicles vehicles={vehicles} />}
