@@ -1,12 +1,27 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Home, Reserves } from './views';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Login, Home, Reserves } from './views';
+import { isAuthenticated } from './auth';
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: '/', state: { from: props.loaction } }} />
+      )
+    }
+  />
+);
 
 const AppRouter = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/reservas" component={Reserves} exact />
+      <Route path="/" component={Login} exact />
+      <PrivateRoute path="/inicio" component={Home} exact />
+      <PrivateRoute path="/reservas" component={Reserves} exact />
     </Switch>
   </BrowserRouter>
 );

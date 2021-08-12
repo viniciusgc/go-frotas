@@ -19,10 +19,17 @@ const Header = () => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const logout = () => {
+    localStorage.removeItem('customer');
+    localStorage.removeItem('name');
+
+    window.location.href = '/';
+  };
+
   return (
     <div>
       <Navbar color="white" light expand="md" className="mb-4">
-        <NavbarBrand href="/">
+        <NavbarBrand href="/inicio">
           <img src={Logo} width="70" height="70" alt="logo" />
         </NavbarBrand>
 
@@ -32,7 +39,9 @@ const Header = () => {
           <Nav className="ml-auto" navbar>
             <NavbarText className="mr-2">Você logou como:</NavbarText>
 
-            <NavbarText className="mr-4 user">Go Frotas LTDA</NavbarText>
+            <NavbarText className="mr-4 user">
+              {localStorage.getItem('name')}
+            </NavbarText>
 
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -41,7 +50,7 @@ const Header = () => {
               <DropdownMenu right>
                 <DropdownItem href="/reservas">Minhas Reservas</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Sair</DropdownItem>
+                <DropdownItem onClick={logout}>Sair</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
