@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardImg, Col, Row } from 'reactstrap';
+import { formatMoney } from '../../utils/money';
 
 import './style.scss';
 
@@ -47,7 +48,7 @@ function ReserveCard({ reservation }) {
           </Col>
           <Col md={2}>
             <div className="price">
-              R$: {reservation.Tarifa.ValorPeriodoVeiculo}
+              {formatMoney(reservation.Tarifa.ValorPeriodoVeiculo)}
             </div>
           </Col>
         </Row>

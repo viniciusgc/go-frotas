@@ -10,3 +10,4 @@ export { default as Vehicles } from './Vehicles';
 export { default as ReserveCard } from './ReserveCard';
 export { default as ModalInfo } from './Modal';
 export { default as Reserve } from './Reserve';
+export { default as Protections } from './Protections';

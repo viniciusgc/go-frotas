@@ -1,0 +1,13 @@
+@import '../../sass//variables.scss';
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    color: $secondary;
+    font-size: 1.25rem;
+  }
+}

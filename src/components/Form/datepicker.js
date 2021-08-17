@@ -43,6 +43,7 @@ export default function DatePicker({ name, label, ...rest }) {
         dateFormat="dd/MM/yyyy"
         {...rest}
         id="validationServer03Feedback"
+        autocomplete="false"
       />
     </FormGroup>
   );

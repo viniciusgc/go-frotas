@@ -7,15 +7,17 @@ export function formatMoney(
   withCents = true
 ) {
   const negativeValue = value.toString().indexOf('-') > -1;
-  let fixedValue = value
-    .toString()
-    .replace('-', '')
-    .replace('.', '')
-    .padStart(3, '0');
 
-  if (fixedValue.length === 4) {
+  let fixedValue = value.toString();
+
+  if (fixedValue.split('.')[1].length === 1) {
     fixedValue = fixedValue.concat('0');
   }
+
+  fixedValue = fixedValue
+    .replace('.', '')
+    .replace('-', '')
+    .padStart(3, '0');
 
   const valueWithDecimalSeparator = [
     fixedValue.slice(0, centsPosition),
