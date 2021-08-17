@@ -9,3 +9,4 @@ export { default as Steps } from './Steps';
 export { default as Vehicles } from './Vehicles';
 export { default as ReserveCard } from './ReserveCard';
 export { default as ModalInfo } from './Modal';
+export { default as Reserve } from './Reserve';

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ReactLoading from 'react-loading';
 import { Card, CardTitle, Col, Row } from 'reactstrap';
 import Layout from '../container/layout';
-import { ReservationForm, Steps, Vehicles } from '../../components';
+import { ReservationForm, Reserve, Steps, Vehicles } from '../../components';
 
 import './style.scss';
 import { getVehiclesGroup } from './actions';
@@ -27,6 +27,10 @@ function Home() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleReserve = () => {
+    setStep(3);
   };
 
   return (
@@ -53,7 +57,14 @@ function Home() {
                     <ReservationForm handleVehicles={handleVehicles} />
                   )}
 
-                  {step === 2 && <Vehicles vehicles={vehicles} />}
+                  {step === 2 && (
+                    <Vehicles
+                      vehicles={vehicles}
+                      handleReserve={handleReserve}
+                    />
+                  )}
+
+                  {step === 3 && <Reserve />}
                 </>
               )}
 

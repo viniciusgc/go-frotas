@@ -11,7 +11,7 @@ import {
 import { formatMoney } from '../../utils/money';
 import './style.scss';
 
-function Vehicles({ vehicles }) {
+function Vehicles({ vehicles, handleReserve }) {
   const getImage = () => {
     if (vehicles.URLImagem) {
       return vehicles.URLImagem;
@@ -37,7 +37,9 @@ function Vehicles({ vehicles }) {
 
             <CardText>{vehicle.SubDescricao}</CardText>
 
-            <Button size="lg">Alugar</Button>
+            <Button size="lg" onClick={handleReserve}>
+              Alugar
+            </Button>
           </CardBody>
         </Card>
       ))}
