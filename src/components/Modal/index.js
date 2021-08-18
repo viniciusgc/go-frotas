@@ -11,7 +11,7 @@ const ModalInfo = props => {
         <ModalBody>
           <Row className="mb-3">
             <Col className="text-center">
-              <h1 className="h3 mb-4 fw-normal">Atençao!</h1>
+              <h1 className="h3 mb-4 fw-normal">Atenção!</h1>
 
               <p>
                 Não foi possível encontrar esse cpf em nosso sistema. <br />
