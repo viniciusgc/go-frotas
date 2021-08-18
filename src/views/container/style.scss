@@ -30,7 +30,7 @@ h5 {
   color: $primary !important;
 }
 
-.btn {
+.btn:not(.wrapper-steps) {
   background-color: $secondary !important;
   border-color: $secondary !important;
   border-radius: 50px !important;

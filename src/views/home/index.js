@@ -4,6 +4,7 @@ import ReactLoading from 'react-loading';
 import { Card, CardTitle, Col, Row } from 'reactstrap';
 import Layout from '../container/layout';
 import {
+  ModalInfo,
   Protections,
   ReservationForm,
   Reserve,
@@ -21,6 +22,9 @@ function Home() {
   const [step, setStep] = useState(1);
   const [vehicles, setVehicles] = useState([]);
   const [protections, setProtections] = useState([]);
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
 
   const handleVehicles = async data => {
     setLoading(true);
@@ -35,6 +39,8 @@ function Home() {
       setStep(2);
     } catch (error) {
       console.error(error);
+
+      setModal(true);
     } finally {
       setLoading(false);
     }
@@ -60,6 +66,12 @@ function Home() {
     setStep(3);
   };
 
+  const handleBackSteps = index => {
+    if (step > 1) {
+      setStep(index);
+    }
+  };
+
   return (
     <Layout>
       <Row className="mb-5">
@@ -72,7 +84,7 @@ function Home() {
                 <span className="ml-2">Nova Reserva</span>
               </CardTitle>
 
-              <Steps steps={4} active={step} />
+              <Steps steps={4} active={step} onClick={handleBackSteps} />
             </div>
 
             <div className="hr" />
@@ -111,6 +123,12 @@ function Home() {
           </Card>
         </Col>
       </Row>
+
+      <ModalInfo
+        show={modal}
+        toggle={toggle}
+        description="Não encontramos nehum grupo de veículos disponível na data solicitada. Por favor tente novamente!"
+      />
     </Layout>
   );
 }

@@ -1,11 +1,25 @@
 @import '../../sass//variables.scss';
 
 .wrapper-steps {
-  border: 2px solid $primary;
+  background-color: transparent !important;
+  border: 2px solid $primary !important;
   border-radius: 50%;
   padding: 3px 10px;
+  color: $accent !important;
   &:not(:last-child) {
     margin-right: 1rem;
+  }
+
+  &:hover {
+    background-color: $primary !important;
+    border-color: $primary !important;
+    color: $white !important;
+  }
+
+  &:disabled {
+    background-color: $white !important;
+    border-color: $accent !important;
+    color: $accent !important;
   }
 }
 
@@ -15,6 +29,7 @@
 
 .active {
   background-color: $primary !important;
+  border-color: $primary;
   color: $white !important;
   font-weight: bold !important;
 }

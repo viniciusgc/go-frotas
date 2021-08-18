@@ -49,6 +49,8 @@ export const getVehiclesGroup = data => {
     })
     .catch(e => {
       console.error(e);
+
+      throw new Error();
     });
 };
 

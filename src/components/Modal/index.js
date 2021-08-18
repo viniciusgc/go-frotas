@@ -3,7 +3,20 @@ import { Button, Col, Modal, ModalBody, Row } from 'reactstrap';
 import './style.scss';
 
 const ModalInfo = props => {
-  const { className, show, toggle } = props;
+  const { className, show, toggle, description } = props;
+
+  const getText = () => {
+    if (description) {
+      return <p>{description}</p>;
+    }
+
+    return (
+      <p>
+        Não foi possível encontrar esse cpf em nosso sistema. <br />
+        Por favor verifique e tente novamente.
+      </p>
+    );
+  };
 
   return (
     <div className="modal">
@@ -13,10 +26,7 @@ const ModalInfo = props => {
             <Col className="text-center">
               <h1 className="h3 mb-4 fw-normal">Atenção!</h1>
 
-              <p>
-                Não foi possível encontrar esse cpf em nosso sistema. <br />
-                Por favor verifique e tente novamente.
-              </p>
+              {getText()}
             </Col>
           </Row>
 
