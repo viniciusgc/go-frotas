@@ -8,6 +8,10 @@ function Reserve() {
     window.location.href = '/reservas';
   };
 
+  const goToHome = () => {
+    window.location.href = '/inicio';
+  };
+
   return (
     <div className="reserve">
       <h1>Reserva realizada com sucesso!</h1>
@@ -19,6 +23,10 @@ function Reserve() {
 
       <Button size="lg" className="mt-5" onClick={goToReserves} color="primary">
         Ver minhas reservas
+      </Button>
+
+      <Button size="lg" className="mt-3" onClick={goToHome}>
+        Fazer nova reserva
       </Button>
     </div>
   );

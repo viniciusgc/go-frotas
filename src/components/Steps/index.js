@@ -19,7 +19,7 @@ function Steps({ steps, active, onClick }) {
             active === index + 1 ? 'wrapper-steps active' : 'wrapper-steps'
           }
           color="info"
-          disabled={active < index + 1}
+          disabled={active < index + 1 || active === 4}
           onClick={() => onClick(index + 1)}
         >
           <div>{index + 1}</div>
