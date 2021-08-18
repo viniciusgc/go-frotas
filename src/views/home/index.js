@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactLoading from 'react-loading';
-import { Card, CardTitle, Col, Row } from 'reactstrap';
+import { Card, CardFooter, CardTitle, Col, Row, Button } from 'reactstrap';
 import Layout from '../container/layout';
 import {
   ModalInfo,
@@ -72,6 +72,12 @@ function Home() {
     }
   };
 
+  const handleBack = () => {
+    if (step > 1) {
+      setStep(step - 1);
+    }
+  };
+
   return (
     <Layout>
       <Row className="mb-5">
@@ -120,6 +126,16 @@ function Home() {
                 </div>
               )}
             </div>
+
+            {(step === 2 || step === 3) && (
+              <CardFooter className="bg-white">
+                <div className="row justify-content-center">
+                  <Button size="md" onClick={handleBack}>
+                    Voltar
+                  </Button>
+                </div>
+              </CardFooter>
+            )}
           </Card>
         </Col>
       </Row>
