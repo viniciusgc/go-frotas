@@ -127,7 +127,7 @@ function Home() {
               )}
             </div>
 
-            {(step === 2 || step === 3) && (
+            {(step === 2 || step === 3) && !loading && (
               <CardFooter className="bg-white">
                 <div className="row justify-content-center">
                   <Button size="md" onClick={handleBack}>
