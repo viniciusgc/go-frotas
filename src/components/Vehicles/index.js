@@ -37,7 +37,11 @@ function Vehicles({ vehicles, handleReserve }) {
 
             <CardText>{vehicle.SubDescricao}</CardText>
 
-            <Button size="lg" onClick={() => handleReserve(vehicle)}>
+            <Button
+              size="lg"
+              color="primary"
+              onClick={() => handleReserve(vehicle)}
+            >
               Alugar
             </Button>
           </CardBody>

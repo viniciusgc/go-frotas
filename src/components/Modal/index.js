@@ -3,7 +3,7 @@ import { Button, Col, Modal, ModalBody, Row } from 'reactstrap';
 import './style.scss';
 
 const ModalInfo = props => {
-  const { className, show, toggle, description } = props;
+  const { className, show, toggle, description, toggleSecond } = props;
 
   const getText = () => {
     if (description) {
@@ -31,10 +31,21 @@ const ModalInfo = props => {
           </Row>
 
           <Row>
-            <Col className="text-center">
+            <Col className="text-center wrapperbtn">
               <Button color="primary" onClick={toggle} size="lg">
                 OK
               </Button>
+
+              {toggleSecond && (
+                <Button
+                  color="secondary"
+                  onClick={toggleSecond}
+                  size="lg"
+                  className="mt-3"
+                >
+                  Cancelar
+                </Button>
+              )}
             </Col>
           </Row>
         </ModalBody>

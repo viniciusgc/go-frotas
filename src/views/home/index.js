@@ -23,8 +23,11 @@ function Home() {
   const [vehicles, setVehicles] = useState([]);
   const [protections, setProtections] = useState([]);
   const [modal, setModal] = useState(false);
+  const [reserveModal, setReserveModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  const toggleReserveModal = () => setReserveModal(!reserveModal);
 
   const handleVehicles = async data => {
     setLoading(true);
@@ -50,6 +53,8 @@ function Home() {
     setLoading(true);
 
     try {
+      toggleReserveModal();
+
       await reservation(group, protection, date);
 
       setStep(4);
@@ -112,7 +117,7 @@ function Home() {
                   {step === 3 && (
                     <Protections
                       protections={protections}
-                      handleReserve={handleReserve}
+                      handleReserve={toggleReserveModal}
                     />
                   )}
 
@@ -144,6 +149,13 @@ function Home() {
         show={modal}
         toggle={toggle}
         description="Não encontramos nehum grupo de veículos disponível na data solicitada. Por favor tente novamente!"
+      />
+
+      <ModalInfo
+        show={reserveModal}
+        toggle={handleReserve}
+        toggleSecond={toggleReserveModal}
+        description="Ao cliclar em OK você confirma que está fazendo a reserva. Tudo bem?"
       />
     </Layout>
   );

@@ -36,6 +36,7 @@ const Protections = ({ protections, handleReserve }) => {
 
             <CardFooter className="bg-white">
               <Button
+                color="primary"
                 className="float-right"
                 onClick={() => handleReserve(protection.CodigoProtecao)}
               >

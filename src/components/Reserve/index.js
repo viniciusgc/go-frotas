@@ -17,7 +17,7 @@ function Reserve() {
         botão abaixo.
       </p>
 
-      <Button size="lg" className="mt-5" onClick={goToReserves}>
+      <Button size="lg" className="mt-5" onClick={goToReserves} color="primary">
         Ver minhas reservas
       </Button>
     </div>
