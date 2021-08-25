@@ -9,6 +9,7 @@ import {
   Button,
 } from 'reactstrap';
 import { formatMoney } from '../../utils/money';
+import grupo from '../../assets/grupo.png';
 import './style.scss';
 
 function Vehicles({ vehicles, handleReserve }) {
@@ -17,7 +18,7 @@ function Vehicles({ vehicles, handleReserve }) {
       return vehicles.URLImagem;
     }
 
-    return 'https://gofrotas.com.br/wp-content/uploads/2019/01/site-go-grupoC-370x370-1.png';
+    return grupo;
   };
 
   return (

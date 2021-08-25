@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody, CardImg, Col, Row } from 'reactstrap';
 import { formatMoney } from '../../utils/money';
-
+import reserva from '../../assets/reserva.png';
 import './style.scss';
 
 function ReserveCard({ reservation }) {
@@ -10,7 +10,7 @@ function ReserveCard({ reservation }) {
       return reservation.GrupoVeiculo.URLImagem;
     }
 
-    return 'https://gofrotas.com.br/wp-content/uploads/2019/01/site-go-grupoC-370x370-1.png';
+    return reserva;
   };
 
   return (
