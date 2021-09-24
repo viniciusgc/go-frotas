@@ -48,7 +48,9 @@ function ReserveCard({ reservation }) {
           </Col>
           <Col md={2}>
             <div className="price">
-              {formatMoney(reservation.Tarifa.ValorPeriodoVeiculo)}
+              {`${formatMoney(
+                reservation.Tarifa.ValorPeriodoVeiculo
+              )} / Diária`}
             </div>
           </Col>
         </Row>
