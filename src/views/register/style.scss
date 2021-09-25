@@ -7,5 +7,9 @@
 
   .card-register {
     width: 40%;
+
+    @media screen and (max-width: 900px) {
+      width: 90%;
+    }
   }
 }
