@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
-import { FormGroup } from 'reactstrap';
+import { FormGroup, Label } from 'reactstrap';
 import ReactInputMask from 'react-input-mask';
 import './style.scss';
 
-export default function InputMask({ name, label, error, ...rest }) {
+export default function InputMask({ name, label, styles, ...rest }) {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -22,25 +22,29 @@ export default function InputMask({ name, label, error, ...rest }) {
     });
   }, [fieldName, registerField]);
 
+  const getStyles = () => {
+    const defaultSyle = error
+      ? 'form-control input-mask is-invalid'
+      : 'form-control input-mask';
+
+    if (styles) {
+      return `${defaultSyle} ${styles}`;
+    }
+
+    return defaultSyle;
+  };
+
   return (
     <FormGroup>
+      <Label for={name}>{label}</Label>
+
       <ReactInputMask
-        className={
-          error
-            ? 'form-control form-control-lg input-mask is-invalid'
-            : 'form-control form-control-lg input-mask'
-        }
+        className={getStyles()}
         id={name}
         ref={inputRef}
         defaultValue={defaultValue}
         {...rest}
       />
-
-      {error && (
-        <div id="validationServer03Feedback" className="invalid-feedback">
-          Por favor digite seu cpf corretamente.
-        </div>
-      )}
     </FormGroup>
   );
 }

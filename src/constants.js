@@ -4,6 +4,7 @@ export const API = {
   RESERVATIONS: 'reservas/codigo/',
   CUSTOMER: 'clientes/cpf/',
   RESERVES: 'reservas',
+  CLIENT: 'clientes',
 };
 
 export const COMPANY = {

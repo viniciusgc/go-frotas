@@ -9,13 +9,12 @@ import { getCustomer } from './actions';
 
 function Login() {
   const formRef = useRef(null);
-  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
 
   const handleSubmit = async data => {
     if (!data.cpf) {
-      setError(true);
+      formRef.current.setFieldError('cpf', 'data obrigatória');
 
       return;
     }
@@ -52,21 +51,27 @@ function Login() {
             alt="logo"
           />
 
-          <h1 className="h3 mb-4 fw-normal">Por favor, faça o login</h1>
+          <h1 className="h3 fw-normal">Por favor, faça o login</h1>
 
           <Form ref={formRef} onSubmit={handleSubmit}>
             <InputMask
               name="cpf"
               type="text"
               mask="999.999.999-99"
-              placeholder="Digite seu cpf"
-              error={error}
+              placeholder="Digite seu cpf..."
+              styles="form-control-lg"
             />
+
+            <hr className="mt-5" />
+
+            <p>
+              Não é nosso cliente ainda? <a href="/register">Cadastre-se</a>
+            </p>
 
             <Button
               color="primary"
               size="lg"
-              className="w-100 btn btn-lg btn-primary my-5"
+              className="w-100 btn btn-lg btn-primary mb-5 mt-3"
               type="submit"
             >
               Entrar

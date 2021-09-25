@@ -4,8 +4,8 @@ import { diffDate, formatDate, formatHour } from '../../utils/date';
 
 const makeData = data => {
   return {
-    codigoEmpresa: 1,
-    codigoUnidade: 1,
+    codigoEmpresa: COMPANY.CODIGO_EMPRESA,
+    codigoUnidade: COMPANY.CODIGO_UNIDADE,
     dataInicio: formatDate(data.dataInicio),
     dataTermino: formatDate(data.dataTermino),
     horaInicio: formatHour(data.horaInicio),

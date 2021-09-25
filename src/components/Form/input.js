@@ -4,7 +4,7 @@ import { FormGroup, Label } from 'reactstrap';
 
 export default function Input({ name, label, ...rest }) {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -18,7 +18,7 @@ export default function Input({ name, label, ...rest }) {
     <FormGroup>
       <Label for={name}>{label}</Label>
       <input
-        className="form-control"
+        className={error ? 'form-control is-invalid' : 'form-control'}
         id={name}
         ref={inputRef}
         defaultValue={defaultValue}
