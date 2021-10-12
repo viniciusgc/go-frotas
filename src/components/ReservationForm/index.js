@@ -52,7 +52,7 @@ export default function ReservationForm({ handleVehicles }) {
             label="Onde você deseja retirar seu carro?"
             type="text"
             readOnly
-            value="Av Maria Antonia Camargo de Oliveira 590, Araraquara - SP"
+            value="Av Maria Antonia Camargo de Oliveira 390, Araraquara - SP"
           />
         </Col>
 
