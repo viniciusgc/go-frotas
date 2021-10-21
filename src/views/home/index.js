@@ -22,12 +22,16 @@ function Home() {
   const [step, setStep] = useState(1);
   const [vehicles, setVehicles] = useState([]);
   const [protections, setProtections] = useState([]);
+  const [protection, setProtection] = useState(null);
   const [modal, setModal] = useState(false);
   const [reserveModal, setReserveModal] = useState(false);
+  const [reserveModalFail, setReserveModalFail] = useState(false);
 
   const toggle = () => setModal(!modal);
 
   const toggleReserveModal = () => setReserveModal(!reserveModal);
+
+  const toggleReserveModalFail = () => setReserveModalFail(!reserveModalFail);
 
   const handleVehicles = async data => {
     setLoading(true);
@@ -49,7 +53,7 @@ function Home() {
     }
   };
 
-  const handleReserve = async protection => {
+  const handleReserve = async () => {
     setLoading(true);
 
     try {
@@ -60,6 +64,8 @@ function Home() {
       setStep(4);
     } catch (error) {
       console.error(error);
+
+      setReserveModalFail(true);
     } finally {
       setLoading(false);
     }
@@ -117,7 +123,10 @@ function Home() {
                   {step === 3 && (
                     <Protections
                       protections={protections}
-                      handleReserve={toggleReserveModal}
+                      handleReserve={value => {
+                        setProtection(value);
+                        toggleReserveModal();
+                      }}
                     />
                   )}
 
@@ -149,6 +158,12 @@ function Home() {
         show={modal}
         toggle={toggle}
         description="Não encontramos nehum grupo de veículos disponível na data solicitada. Por favor tente novamente!"
+      />
+
+      <ModalInfo
+        show={reserveModalFail}
+        toggle={toggleReserveModalFail}
+        description="Não conseguimos concluir a reserva, por favor tente novamente!"
       />
 
       <ModalInfo

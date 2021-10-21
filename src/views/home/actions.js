@@ -64,5 +64,7 @@ export const reservation = (group, protection, date) => {
     })
     .catch(e => {
       console.error(e);
+
+      throw new Error();
     });
 };
