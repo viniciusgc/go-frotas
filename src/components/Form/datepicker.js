@@ -38,6 +38,7 @@ export default function DatePicker({ name, label, ...rest }) {
         }
         ref={datepickerRef}
         selected={date}
+        minDate={new Date()}
         onChange={setDate}
         locale="ptBR"
         dateFormat="dd/MM/yyyy"
