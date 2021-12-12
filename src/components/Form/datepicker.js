@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 
 import { useField } from '@unform/core';
@@ -9,7 +9,7 @@ import { FormGroup, Label } from 'reactstrap';
 import './style.scss';
 
 registerLocale('ptBR', ptBR);
-export default function DatePicker({ name, label, ...rest }) {
+export default function DatePickerInput({ name, label, ...rest }) {
   const datepickerRef = useRef(null);
   const { fieldName, registerField, defaultValue, error } = useField(name);
 
@@ -26,11 +26,16 @@ export default function DatePicker({ name, label, ...rest }) {
     });
   }, [fieldName, registerField]);
 
+  const isWeekday = value => {
+    const day = value.getDay();
+    return day !== 0;
+  };
+
   return (
     <FormGroup inline>
       <Label for={name}>{label}</Label>
 
-      <ReactDatePicker
+      <DatePicker
         className={
           error
             ? 'form-control datepicker is-invalid'
@@ -42,6 +47,7 @@ export default function DatePicker({ name, label, ...rest }) {
         onChange={setDate}
         locale="ptBR"
         dateFormat="dd/MM/yyyy"
+        filterDate={isWeekday}
         {...rest}
         id="validationServer03Feedback"
         autoComplete="off"

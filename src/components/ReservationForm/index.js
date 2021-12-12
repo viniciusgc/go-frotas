@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Form } from '@unform/web';
 import { Col, Row, Button } from 'reactstrap';
 import Input from '../Form/input';
-import DatePicker from '../Form/datepicker';
+import DatePickerInput from '../Form/datepicker';
 import TimerPicker from '../Form/timerpicker';
 
 export default function ReservationForm({ handleVehicles }) {
@@ -81,7 +81,7 @@ export default function ReservationForm({ handleVehicles }) {
 
       <Row>
         <Col md="4">
-          <DatePicker
+          <DatePickerInput
             name="dataInicio"
             label="Data de Retirada"
             placeholder="Escolha a data"
@@ -92,7 +92,7 @@ export default function ReservationForm({ handleVehicles }) {
         </Col>
 
         <Col md="4">
-          <DatePicker name="dataTermino" label="Data de Devolução" />
+          <DatePickerInput name="dataTermino" label="Data de Devolução" />
         </Col>
 
         <Col md="2">
