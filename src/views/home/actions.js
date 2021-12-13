@@ -8,8 +8,8 @@ const makeData = data => {
     codigoUnidade: COMPANY.CODIGO_UNIDADE,
     dataInicio: formatDate(data.dataInicio),
     dataTermino: formatDate(data.dataTermino),
-    horaInicio: formatHour(data.horaInicio),
-    horaTermino: formatHour(data.horaTermino),
+    horaInicio: formatHour(data.dataInicio),
+    horaTermino: formatHour(data.dataTermino),
     periodo: diffDate(data.dataInicio, data.dataTermino),
   };
 };
@@ -24,8 +24,8 @@ const makeReserveData = (group, protection, date) => {
     CodigoTarifa: group.Tarifas[0].CodigoTarifaVeiculo,
     DataInicio: formatDate(date.dataInicio),
     DataTermino: formatDate(date.dataTermino),
-    HoraInicio: formatHour(date.horaInicio),
-    HoraTermino: formatHour(date.horaTermino),
+    HoraInicio: formatHour(date.dataInicio),
+    HoraTermino: formatHour(date.dataTermino),
     CodigoMunicipioRetirada: COMPANY.CODIGO_MUNICPIO_RETIRADA,
     CodigoMunicipioDevolucao: COMPANY.CODIGO_MUNICPIO_RETIRADA,
     Origem: 'W',

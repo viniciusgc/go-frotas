@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import { Col, Row, Button } from 'reactstrap';
 import Input from '../Form/input';
 import DatePickerInput from '../Form/datepicker';
-import TimerPicker from '../Form/timerpicker';
+// import TimerPicker from '../Form/timerpicker';
 
 export default function ReservationForm({ handleVehicles }) {
   const formRef = useRef(null);
@@ -18,20 +18,15 @@ export default function ReservationForm({ handleVehicles }) {
       formRef.current.setFieldError('dataTermino', 'data obrigatória');
     }
 
-    if (!data.horaInicio) {
-      formRef.current.setFieldError('horaInicio', 'data obrigatória');
-    }
+    // if (!data.horaInicio) {
+    //   formRef.current.setFieldError('horaInicio', 'data obrigatória');
+    // }
 
-    if (!data.horaTermino) {
-      formRef.current.setFieldError('horaTermino', 'data obrigatória');
-    }
+    // if (!data.horaTermino) {
+    //   formRef.current.setFieldError('horaTermino', 'data obrigatória');
+    // }
 
-    return (
-      !data.dataInicio ||
-      !data.dataTermino ||
-      !data.horaInicio ||
-      !data.horaTermino
-    );
+    return !data.dataInicio || !data.dataTermino;
   };
   const handleSubmit = async data => {
     const error = checkErrors(data);
@@ -79,25 +74,28 @@ export default function ReservationForm({ handleVehicles }) {
         </Col>
       </Row> */}
 
-      <Row>
+      <Row className="mt-3">
         <Col md="4">
           <DatePickerInput
             name="dataInicio"
-            label="Data de Retirada"
+            label="Data e hora de Retirada"
             placeholder="Escolha a data"
           />
         </Col>
-        <Col md="2">
+        {/* <Col md="2">
           <TimerPicker name="horaInicio" label="Hora de Retirada" />
-        </Col>
+        </Col> */}
 
         <Col md="4">
-          <DatePickerInput name="dataTermino" label="Data de Devolução" />
+          <DatePickerInput
+            name="dataTermino"
+            label="Data  e hora de Devolução"
+          />
         </Col>
 
-        <Col md="2">
+        {/* <Col md="2">
           <TimerPicker name="horaTermino" label="Hora de Devolução" />
-        </Col>
+        </Col> */}
       </Row>
 
       <Row className="mt-5">

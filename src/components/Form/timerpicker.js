@@ -15,7 +15,6 @@ export default function TimerPicker({ name, label, ...rest }) {
   const [date, setDate] = useState(defaultValue || null);
 
   const filterPassedTime = time => {
-    // const currentDate = new Date();
     const selectedDate = new Date(time);
 
     return (
