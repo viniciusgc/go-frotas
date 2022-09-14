@@ -32,7 +32,7 @@ function Vehicles({ vehicles, handleReserve }) {
 
             <CardSubtitle tag="h5" className="mb-2 text-muted">
               {`${formatMoney(
-                vehicle.Tarifas[0].ValorPeriodoVeiculo
+                vehicle?.Tarifas[0]?.ValorPeriodoVeiculo
               )} / Diária`}
             </CardSubtitle>
 

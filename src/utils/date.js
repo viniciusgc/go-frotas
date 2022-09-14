@@ -5,7 +5,7 @@ export function formatDate(date) {
 }
 
 export function formatHour(hour) {
-  return moment(hour).format('H:mm');
+  return moment(hour).format('HH:mm');
 }
 
 export function diffDate(firstDate, secondDate) {

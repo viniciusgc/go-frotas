@@ -10,7 +10,11 @@ export function formatMoney(
 
   let fixedValue = value.toString();
 
-  if (fixedValue.split('.')[1].length === 1) {
+  if (!fixedValue.includes('.')) {
+    fixedValue = fixedValue.concat('.00');
+  }
+
+  if (fixedValue.split('.')[1]?.length === 1) {
     fixedValue = fixedValue.concat('0');
   }
 
